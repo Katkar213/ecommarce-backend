@@ -18,4 +18,8 @@ const finddata=async (req,res)=>{
    const datafinding= await Product.find({})
    res.send(datafinding)
 }
+
+
+
+
 module.exports={adddata,finddata}

@@ -1,49 +1,25 @@
-const mongoosedata=require("mongoose")
+const mongoose=require("mongoose")
 
-// const userSchema=mongoose.Schema({
-//     category: String,
-//     id:String,
-//     type:String,
-//     name:String,
-//     model:String,
-//     color:String,
-//     image:String,
-//     brand:String,
-//     size:String,
-//     sleeveLength:String,
-//     product:String,
-//     download_url:String,
-//     material:String,
-//     price:String,
-//     specs:{
-//       size:String,
-//       type:String,
-//       resolution:String,
-//       smartFeatures:String,
-//       origin:String,
-//       features:String,
-//       weight:String,
-//      storage:String,
-//       material:String,
-//       color:String,
-//       capacity:String,
-//       washPrograms:String,
-//       RAM:String,
-//       camera:String,
-//       energyRating:String,
-//       display:String,
-//       processor:String,
-//       camera:String,
-//       battery:String,
-//       operatingSystem:String,
-//       ROM:String,
-//       graphics:String,
-//       expandableMemory:String,
-//     },
-// });
+const userRegister = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: Number,
+  },
+});
 
 
-const userSchema = mongoosedata.Schema({
+const userSchema = mongoose.Schema({
     category: String,
     id: String,
     type: String,
@@ -86,8 +62,8 @@ const userSchema = mongoosedata.Schema({
 
 
 
-const Product=mongoosedata.model("ProductData",userSchema)
-module.exports={Product}
+const Product=mongoose.model("ProductData",userSchema)
+module.exports={Product,userRegister}
 
 
 
